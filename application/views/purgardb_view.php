@@ -7,11 +7,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <head>
         <meta charset="utf-8">
         <title>Inici</title>
+
         <style>
             body * {
-                font-size: 24px;
+                font-size: 18px;
             }
-            
+
+            table {
+                border-collapse: collapse;
+            }
+
+            td,
+            th {
+                text-transform: capitalize;
+                border: 2px solid black;
+                padding: 5px;
+            }
+
+            input:focus,select:focus, select option:hover {
+                background-color: #f2f29f;
+            }
+
             input[type=submit] {
                 background: #00ff09;
                 background-image: -webkit-linear-gradient(top, #00ff09, #25421b);
@@ -42,18 +58,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </head>
 
     <body>
-        <?php 
-    if (isset($msg)) { 
-        echo $msg;
-    } 
-    ?>
+        <p><?php 
+            if (isset($msg)) {
+                echo $msg;
+            } ?></p>
         <div class="container">
-            <form method="post" action="<?php echo base_url('index.php/informes') ?>">
-                <label for="fDataInici">Desde quin dia vol l'informe</label>
-                <input type="date" name="fDataInici" id="fDataInici" required/>
+            <p>Ha entrat a la opció d'eliminar tots els animals que no son a la granja, desde el primer registre que es tingui fins a la data que vulgueu. S'ha de ser molt curós a l'hora d'escollir aquesta opció, ja que per defecte l'aplicacio no esborra del tot els animals morts o portats al escorxador per tenir un registre o per raons estadistiques. Si esborra els animals que ja no estan a la granja ja no els podra recuperar mai mes.</p>
+            <form method="post" action="<?php echo base_url('index.php/purgardb') ?>">
+                <label for="fData">Desde quin dia vol eliminar els animals que ja no son a la granja?</label>
+                <input type="date" name="fData" />
                 <br>
-                <br>
-                <input type="submit" value="Generar Informes" />
+                <input type="submit" value="Eliminar registres" />
             </form>
         </div>
 

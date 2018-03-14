@@ -63,4 +63,6 @@ $route['donarBaixaAnimal']['GET'] = 'donarBaixaAnimal/index';
 $route['donarBaixaAnimal']['POST'] = 'donarBaixaAnimal/donarBaixa';
 $route['llistarTots'] = 'llistar/tots';
 $route['informes']['GET'] = 'informes/index';
-$route['informes']['POST']= 'informes/generals';
+$route['informes']['POST'] = 'informes/generals';
+$route['purgardb']['GET'] = 'gestiodb/indexPurgarDB';
+$route['purgardb']['POST'] = 'gestiodb/purgarDB';

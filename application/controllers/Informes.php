@@ -30,13 +30,21 @@ class Informes extends CI_Controller {
 	}
     
     public function generals() {
-        $data["dataInici"] = $this->input->post('fDataInici');
-        $data["entrades"] = $this->informe_model->entrades($data["dataInici"]);
-        $this->load->view('informeEntrades_view',$data);
-        $data["sortides"] = $this->informe_model->sortides($data["dataInici"]);
-        $data["total"] = $this->informe_model->totalvius();
-        $this->load->view('informeSortides_view',$data);
         
+        $data["dataInici"] = $this->input->post('fDataInici');
+        
+        //Obtenir total mascles i total femelles un dia abans del demanat desde sempre
+        $data["mascles"] = $this->informe_model->mascles($data["dataInici"]);
+        $data["femelles"] = $this->informe_model->femelles($data["dataInici"]);
+        
+        $data["mascles"] = $data["mascles"][0]->mascles;
+        $data["femelles"] = $data["femelles"][0]->femelles;
+
+        //Obtenir el moviment d'animals desde el dia demanat fins el final dels nostres dies!
+        $data["entrades"] = $this->informe_model->entrades($data["dataInici"]);
+        $data["sortides"] = $this->informe_model->sortides($data["dataInici"]);
+        $this->load->view('informeEntrades_view',$data);
+        //$this->load->view('informeSortides_view',$data);
     }
     
 

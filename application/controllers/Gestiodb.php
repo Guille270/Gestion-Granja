@@ -1,14 +1,13 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Llistar extends CI_Controller {
+class Gestiodb extends CI_Controller {
     public function __construct()
         {
                 parent::__construct();
                 // Your own constructor code
                 $this->load->helper('url');
-                $this->load->model('llistar_model');
-                $this->load->model('informe_model');
+                $this->load->model('gestiodb_model');
                 
         }
 	/**
@@ -26,12 +25,17 @@ class Llistar extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function tots()
+	public function indexPurgarDB()
 	{
-         $data['files'] = $this->llistar_model->tots();
-         $data["mascles"] = $this->informe_model->mascles();
-         $data["femelles"] = $this->informe_model->femelles();
-         $this->load->view('llistar_view',$data);
+         $this->load->view('purgardb_view.php');
+	}
+    
+    public function purgarDB()
+	{
+         $data["dataLimit"] = $this->input->post('fData');
+         $data["msg"] = "Animals eliminats desde ".$data["dataLimit"];
+         $this->gestiodb_model->purgar($data["dataLimit"]);
+         $this->load->view('purgardb_view.php',$data);
 	}
     
         
