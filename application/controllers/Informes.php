@@ -43,8 +43,8 @@ class Informes extends CI_Controller {
         //Obtenir el moviment d'animals desde el dia demanat fins el final dels nostres dies!
         $data["entrades"] = $this->informe_model->entrades($data["dataInici"]);
         $data["sortides"] = $this->informe_model->sortides($data["dataInici"]);
-        $this->load->view('informeEntrades_view',$data);
-        //$this->load->view('informeSortides_view',$data);
+        $this->load->view('informeEntradesSortides_view',$data);
+        
     }
     
 

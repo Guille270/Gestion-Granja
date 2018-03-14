@@ -19,7 +19,7 @@ class Informe_model extends CI_Model {
         {
                 //SELECT * FROM animals WHERE dataBaixa >= data
                 $query = $this->db->get_where('animals', array('dataBaixa >=' => $data));
-                $this->db->order_by('dataBaixa', 'DESC');
+                $this->db->order_by('dataBaixa', 'ASC');
                 return $query->result();
         }
     
