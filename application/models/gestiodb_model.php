@@ -8,7 +8,8 @@ class Gestiodb_model extends CI_Model {
 
         public function purgar($dia)
         {
-                $this->db->delete('animals', array('dataBaixa <=' => $dia));// DELETE FROM mytable  // WHERE dataBaixa <= 10-10-2018
+                //echo $dia;
+                $this->db->delete('animals', array('dataBaixa >=' => $dia));// DELETE FROM mytable  // WHERE dataBaixa >= 10-10-2018
         }
 
 }

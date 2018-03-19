@@ -54,7 +54,7 @@ class DonarBaixaAnimal extends CI_Controller {
         $data['destinacio'] = $this->input->post('fDestinacio');
         // Fi Recollida dades
         
-        echo  $data['codi']." ".$data['dataBaixa']." ".$data['estat']." ".$data['destinacio'];
+        
         
         if ($this->donarBaixaAnimal_model->existeix($data['codi'])) {
             

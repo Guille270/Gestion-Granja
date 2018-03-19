@@ -29,12 +29,11 @@ class Llistar extends CI_Controller {
 	public function tots()
 	{
          $data['files'] = $this->llistar_model->tots();
-         $data["mascles"] = $this->informe_model->mascles();
-         $data["femelles"] = $this->informe_model->femelles();
+         $data["mascles"] = $this->llistar_model->masclesTots();
+         $data["femelles"] = $this->llistar_model->femellesTotes();
          $this->load->view('llistar_view',$data);
 	}
     
-        
     
     
     
